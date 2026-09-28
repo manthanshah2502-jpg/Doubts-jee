@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Professor Doubt Tracker</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Doubt Tracker">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Professor Doubt Tracker</h1>
+      <p>Keep your doubts ready for your next class.</p>
+    </div>
+    <div class="header-actions"><button id="installBtn" class="install-btn hidden">📲 Install App</button><button id="clearAllBtn" class="danger-outline">Clear All</button></div>
+  </header>
+
+  <main>
+    <nav class="subjects" aria-label="Subjects">
+      <button class="subject active" data-subject="Physics">⚛️ Physics</button>
+      <button class="subject" data-subject="Chemistry">🧪 Chemistry</button>
+      <button class="subject" data-subject="Mathematics">📐 Mathematics</button>
+    </nav>
+
+    <section class="panel">
+      <div class="section-title">
+        <div>
+          <h2 id="subjectTitle">Physics Doubts</h2>
+          <span id="counter">0 pending · 0 completed · 0 cancelled</span>
+        </div>
+        <button id="addBtn" class="primary">＋ Add Doubt</button>
+      </div>
+
+      <form id="doubtForm" class="add-form hidden">
+        <label for="doubtText">Doubt / question</label>
+        <textarea id="doubtText" placeholder="Write the doubt you want to ask your professor..." rows="4"></textarea>
+
+        <label class="photo-label">
+          <span>📷 Add a photo (optional)</span>
+          <input id="photoInput" type="file" accept="image/*" capture="environment">
+        </label>
+        <div id="photoPreview" class="photo-preview hidden"></div>
+
+        <div class="form-actions">
+          <button type="button" id="cancelAdd" class="secondary">Cancel</button>
+          <button type="submit" class="primary">Save Doubt</button>
+        </div>
+      </form>
+
+      <div id="emptyState" class="empty">
+        <div>📝</div>
+        <h3>No doubts yet</h3>
+        <p>Tap “Add Doubt” to write a question or attach a photo.</p>
+      </div>
+
+      <div id="doubtList"></div>
+    </section>
+  </main>
+
+  <footer>Your doubts are stored on this device.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
